@@ -29,6 +29,12 @@ public class Jedis {
         System.out.println(jc.get("53"));
         jc.setex("twosec", 5, "take time");//Set Key-Value for 5 sec, After 5 sec it`ll be die
         System.out.println(jc.get("twosec"));
+        try{
+            Thread.sleep(6000);
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }
+        System.out.println(jc.get("twosec"));
 
         //List part
         jc.lpush("list1", "one", "two", "three", "four");//Make list
